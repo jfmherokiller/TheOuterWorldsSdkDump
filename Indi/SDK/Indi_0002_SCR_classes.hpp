@@ -1,0 +1,245 @@
+#pragma once
+
+// TheOuterWorlds SDK
+
+#ifdef _MSC_VER
+	#pragma pack(push, 0x8)
+#endif
+
+#include "Indi_0002_SCR_structs.hpp"
+
+namespace SDK
+{
+//---------------------------------------------------------------------------
+//Classes
+//---------------------------------------------------------------------------
+
+// BlueprintGeneratedClass 0002_SCR.0002_SCR_C
+// 0x07E8 (0x0B78 - 0x0390)
+class A0002_SCR_C : public ALevelScriptActor
+{
+public:
+	unsigned char                                      UnknownData00[0x7E8];                                     // 0x0390(0x07E8) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("BlueprintGeneratedClass 0002_SCR.0002_SCR_C");
+		return ptr;
+	}
+
+
+	void STATIC_IN74798___Fix_for_Reed();
+	void STATIC_ResetBarkStartGlobalsOnExitFunction();
+	void STATIC_CheckAbernathyInJailFunction();
+	void STATIC_HandleAbernathyInJail();
+	void STATIC_UnlockEdgewaterFastTravel();
+	void STATIC_CheckEdgewaterDead();
+	void STATIC_GetParvatiFromParty(class AIndianaCharacter** Parvati);
+	void STATIC_HandleRobotsKillingEveryone();
+	void STATIC_HandleRestartingBarkDialogs();
+	void STATIC_HandleCantinaBarkers();
+	void STATIC_HandleDesertersShowingUp();
+	void STATIC_UnlockEVTownFastTravel();
+	void STATIC_HandleCanneryMobBarks();
+	void STATIC_PlayParvatiEVBark(int Node);
+	void STATIC_HandleSickhouseColds();
+	void STATIC_HandleReedParvatiBarks();
+	void STATIC_UpdateReedLeftEV();
+	void STATIC_HandlePowerOutInEV();
+	void STATIC_BndEvt__PU_bypass_parvati_garage_K2Node_ActorBoundEvent_29_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_BndEvt__TRIG_lights_out_cannery_mob_barks_K2Node_ActorBoundEvent_30_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_PlayCanneryMobBark();
+	void STATIC_BndEvt__PU_electromagnets_parvati_garage_K2Node_ActorBoundEvent_27_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_BndEvt__LOOT_fridge_parvati_garage_K2Node_ActorBoundEvent_26_ItemStackDelegate__DelegateSignature(const struct FItemStack& Item);
+	void STATIC_BndEvt__TRIG_lights_out_cannery_mob_barks_K2Node_ActorBoundEvent_31_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__PU_boarst_parvati_kitchen_K2Node_ActorBoundEvent_25_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_SetUpNextMobBark();
+	void STATIC_StartCoughing();
+	void STATIC_BndEvt__PU_punch_parvati_kitchen_K2Node_ActorBoundEvent_24_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_BndEvt__LOOT_fridge_parvati_kitchen_K2Node_ActorBoundEvent_23_ItemStackDelegate__DelegateSignature(const struct FItemStack& Item);
+	void STATIC_BndEvt__TRIG_parvati_wants_to_talk_cannery_K2Node_ActorBoundEvent_1_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__PU_bread_parvati_kitchen_K2Node_ActorBoundEvent_22_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_BndEvt__TRIG_parvati_wants_to_talk_garage_K2Node_ActorBoundEvent_2_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__NPC_conrad_sadik_K2Node_ActorBoundEvent_0_ItemStackDelegate__DelegateSignature(const struct FItemStack& Item);
+	void STATIC_BndEvt__NPC_martin_abernathy_K2Node_ActorBoundEvent_2_ItemStackDelegate__DelegateSignature(const struct FItemStack& Item);
+	void STATIC_BndEvt__NPC_phyllis_granger_K2Node_ActorBoundEvent_3_ItemStackDelegate__DelegateSignature(const struct FItemStack& Item);
+	void STATIC_BndEvt__PU_pancakes_parvati_kitchen_K2Node_ActorBoundEvent_21_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_BndEvt__NPC_constable_reyes_K2Node_ActorBoundEvent_0_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__PU_pasta_parvati_kitchen_K2Node_ActorBoundEvent_20_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_BndEvt__PU_bypass_parvati_dad_room_K2Node_ActorBoundEvent_19_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_BndEvt__EXAM_0002_Bounty02_190_K2Node_ActorBoundEvent_1_OnInteract__DelegateSignature(class AActor* Actor);
+	void STATIC_BndEvt__EXAM_0002_Bounty03_69_K2Node_ActorBoundEvent_2_OnInteract__DelegateSignature(class AActor* Actor);
+	void STATIC_BndEvt__EXAM_shocking_power_regulator_K2Node_ActorBoundEvent_3_OnInteract__DelegateSignature(class AActor* Actor);
+	void STATIC_BndEvt__PU_vodka_parvati_dad_room_K2Node_ActorBoundEvent_18_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_BndEvt__LOOT_parvati_dad_room_K2Node_ActorBoundEvent_17_ItemStackDelegate__DelegateSignature(const struct FItemStack& Item);
+	void STATIC_BndEvt__Parvati_Comp_Female_82_K2Node_ActorBoundEvent_4_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__LOOT_parvati_dad_room_02_K2Node_ActorBoundEvent_16_ItemStackDelegate__DelegateSignature(const struct FItemStack& Item);
+	void STATIC_BndEvt__LOOT_parvati_garage_balcony_K2Node_ActorBoundEvent_15_ItemStackDelegate__DelegateSignature(const struct FItemStack& Item);
+	void STATIC_BndEvt__DOOR_lights_out_cannery_elevator_bottom_K2Node_ActorBoundEvent_0_ActorSetStasisSignature__DelegateSignature(bool bIsInStasis, bool bTemporaryStasis);
+	void STATIC_BndEvt__TRIG_parvati_bark_cannery_elevator_K2Node_ActorBoundEvent_14_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_Abernathy_bark_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_esther_bark_K2Node_ActorBoundEvent_2_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__NPC_esther_blaine_K2Node_ActorBoundEvent_38_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_martin_abernathy_K2Node_ActorBoundEvent_39_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__TRIG_parvati_bark_cannery_floor_K2Node_ActorBoundEvent_13_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_parvati_bark_esther_K2Node_ActorBoundEvent_12_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_DisplayQuestDependenciesTutorial();
+	void STATIC_BndEvt__TRIG_complete_quest_dependency_tutorial_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__SQ_0005_ThomasBook02_Pickup_19_K2Node_ActorBoundEvent_0_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_BndEvt__TRIG_parvati_bark_general_store_K2Node_ActorBoundEvent_10_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__EXAM_scientist_wanted_poster_262_K2Node_ActorBoundEvent_6_OnInteract__DelegateSignature(class AActor* Actor);
+	void STATIC_BndEvt__NPC_grace_romero_K2Node_ActorBoundEvent_0_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__TRIG_parvati_bark_constable_K2Node_ActorBoundEvent_9_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__NPC_thomas_kemp_K2Node_ActorBoundEvent_1_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_stefan_garcia_K2Node_ActorBoundEvent_2_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__TRIG_parvati_bark_osi_K2Node_ActorBoundEvent_8_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__NPC_adelaide_mcdevitt_K2Node_ActorBoundEvent_3_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_zoe_chandler_K2Node_ActorBoundEvent_4_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__TRIG_parvati_bark_cantina_K2Node_ActorBoundEvent_7_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__DOOR_cannery_tower_comm_room_K2Node_ActorBoundEvent_1_OCLOpenEnd__DelegateSignature(class AActor* Initiator);
+	void STATIC_BndEvt__TRIG_parvati_bark_barber_shop_K2Node_ActorBoundEvent_6_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_parvati_bark_balcony_K2Node_ActorBoundEvent_5_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_parvati_bark_kitchen_K2Node_ActorBoundEvent_4_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_townie_barks_1_K2Node_ActorBoundEvent_42_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_townie_barks_2_K2Node_ActorBoundEvent_44_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_parvati_bark_garage_K2Node_ActorBoundEvent_3_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_townie_barks_3_K2Node_ActorBoundEvent_45_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_parvati_bark_her_room_K2Node_ActorBoundEvent_2_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_parvati_near_vending_machine_K2Node_ActorBoundEvent_46_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_MoveEsther();
+	void STATIC_BndEvt__TRIG_parvati_bark_dads_room_K2Node_ActorBoundEvent_1_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_lights_out_reed_confrontation_K2Node_ActorBoundEvent_11_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_parvati_bark_bathroom_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_reed_stand_down_bark_K2Node_ActorBoundEvent_47_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_reed_parvati_intro_K2Node_ActorBoundEvent_48_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_reed_confrontation_beacon_switch_K2Node_ActorBoundEvent_49_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__ELEV_cannery_tower_K2Node_ActorBoundEvent_50_ElevatorMoveStart__DelegateSignature(int DestinationFloor, bool FromStationary);
+	void STATIC_BndEvt__TRIG_lights_out_reed_stands_up_K2Node_ActorBoundEvent_51_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_barks_two_guards_K2Node_ActorBoundEvent_52_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__NPC_guard_f1_K2Node_ActorBoundEvent_54_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_guard_m1_K2Node_ActorBoundEvent_55_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_generic_townie_f2_K2Node_ActorBoundEvent_56_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_generic_townie_m2_K2Node_ActorBoundEvent_57_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__TRIG_barks_cantina_K2Node_ActorBoundEvent_58_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_barks_osi_pre_approach_K2Node_ActorBoundEvent_59_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__NPC_osi_parishioner_f02_K2Node_ActorBoundEvent_60_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_osi_parishioner_f01_K2Node_ActorBoundEvent_61_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__TRIG_lights_out_sickhouse_guard_bark_K2Node_ActorBoundEvent_1_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_barks_osi_parishioners_K2Node_ActorBoundEvent_62_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_OSIBarksDone();
+	void STATIC_CantinaBarksDone();
+	void STATIC_BndEvt__TRIG_barks_guard_and_townie_K2Node_ActorBoundEvent_63_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_GuardCanneryWorkerBarksDone();
+	void STATIC_BndEvt__TRIG_lights_out_sickhouse_guard_bark_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_GuardBarksDone();
+	void STATIC_BndEvt__TRIG_barks_on_exit_end_osi_K2Node_ActorBoundEvent_64_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_barks_on_exit_end_break_K2Node_ActorBoundEvent_65_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_barks_on_exit_end_two_guards_K2Node_ActorBoundEvent_66_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_sickhouse_coughing_K2Node_ActorBoundEvent_2_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_barks_on_exit_end_cantina_K2Node_ActorBoundEvent_67_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_ReceiveBeginPlay();
+	void STATIC_BndEvt__NPC_generic_townie_f4_K2Node_ActorBoundEvent_68_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_generic_townie_f1_245_K2Node_ActorBoundEvent_69_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_GenericBarksGroup02Start();
+	void STATIC_GenericBarksGroup02Continue();
+	void STATIC_BndEvt__TRIG_sickhouse_coughing_K2Node_ActorBoundEvent_1_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_townie_barks_2_end_K2Node_ActorBoundEvent_70_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_StartSickhouseFemale02Cough();
+	void STATIC_BndEvt__NPC_generic_townie_m6_K2Node_ActorBoundEvent_71_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_generic_townie_m5_K2Node_ActorBoundEvent_72_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_GenericBarksGroup01Start();
+	void STATIC_GenericBarksGroup01Continue();
+	void STATIC_BndEvt__TRIG_townie_barks_1_end_K2Node_ActorBoundEvent_73_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_MakeSickhouseFemale02Cough();
+	void STATIC_BndEvt__NPC_generic_townie_f3_K2Node_ActorBoundEvent_74_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_generic_townie_m4_K2Node_ActorBoundEvent_75_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_GenericBarksGroup03Continue();
+	void STATIC_GenericBarksGroup03Start();
+	void STATIC_StartSickhouseFemale01Cough();
+	void STATIC_BndEvt__TRIG_townie_barks_3_end_K2Node_ActorBoundEvent_76_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_MakeSickhouseFemale01Cough();
+	void STATIC_BndEvt__ENC_adjutant_bots_K2Node_ActorBoundEvent_90_EncounterComplete__DelegateSignature();
+	void STATIC_StartSickhouseMale02Cough();
+	void STATIC_BndEvt__NPC_rosemary_kwan_K2Node_ActorBoundEvent_77_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_StartSickhouseMale01Cough();
+	void STATIC_StartParvatiPostReedTalk(bool bIsInCombat, bool bRestoring);
+	void STATIC_MakeSickhouseMale02Cough();
+	void STATIC_BndEvt__NPC_ludwig_in_edgewater_K2Node_ActorBoundEvent_79_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__PKUP_SAM_Sign_KickMe_2_K2Node_ActorBoundEvent_78_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_BndEvt__PKUP_Max_OSI_Vial_2_K2Node_ActorBoundEvent_81_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_MakeSickhouseMale01Cough();
+	void STATIC_BndEvt__NPC_guard_f2_K2Node_ActorBoundEvent_82_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_guard_f3_sickhouse_K2Node_ActorBoundEvent_83_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_guard_f4_K2Node_ActorBoundEvent_84_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_guard_m2_K2Node_ActorBoundEvent_85_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_guard_m3_K2Node_ActorBoundEvent_86_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_guard_m4_patrol_K2Node_ActorBoundEvent_87_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_guard_reed_f_K2Node_ActorBoundEvent_88_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_guard_reed_m_K2Node_ActorBoundEvent_89_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_generic_townie_m1_K2Node_ActorBoundEvent_91_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_generic_townie_m3_K2Node_ActorBoundEvent_92_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_osi_parishioner_m01_K2Node_ActorBoundEvent_94_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_osi_parishioner_m02_K2Node_ActorBoundEvent_95_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_cannery_worker_f1_K2Node_ActorBoundEvent_96_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_cannery_worker_f2_K2Node_ActorBoundEvent_97_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_cannery_worker_f3_K2Node_ActorBoundEvent_98_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_cannery_worker_m1_K2Node_ActorBoundEvent_99_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_cannery_worker_m2_K2Node_ActorBoundEvent_100_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_cannery_worker_m3_K2Node_ActorBoundEvent_101_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_cannery_worker_m4_4035_K2Node_ActorBoundEvent_102_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_cannery_worker_m5_K2Node_ActorBoundEvent_103_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_sickhouse_f1_K2Node_ActorBoundEvent_104_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_sickhouse_f2_K2Node_ActorBoundEvent_105_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_sickhouse_m1_K2Node_ActorBoundEvent_106_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_sickhouse_m2_K2Node_ActorBoundEvent_107_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_amelia_kim_K2Node_ActorBoundEvent_109_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__TRIG_sickhouse_guard_bark_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__NPC_conrad_sadik_K2Node_ActorBoundEvent_110_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_julius_moreau_K2Node_ActorBoundEvent_111_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_phyllis_granger_K2Node_ActorBoundEvent_113_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__EXAM_0002_Phyllis_Note_144_K2Node_ActorBoundEvent_0_OnInteract__DelegateSignature(class AActor* Actor);
+	void STATIC_BndEvt__NPC_winslow_K2Node_ActorBoundEvent_114_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_SetUpParvatiGarage();
+	void STATIC_BndEvt__PU_ludwig_bundle_K2Node_ActorBoundEvent_0_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_MoveParvatiToGarage();
+	void STATIC_BndEvt__NPC_ernest_in_edgewater_K2Node_ActorBoundEvent_28_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_kimball_in_edgewater_K2Node_ActorBoundEvent_115_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_mercer_in_edgewater_K2Node_ActorBoundEvent_116_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__NPC_pelham_in_edgewater_K2Node_ActorBoundEvent_117_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_HandleLoadingDuringIntimidate();
+	void STATIC_StartReedParvatiBarks();
+	void STATIC_CheckAbernathyInJailEvent();
+	void STATIC_BndEvt__TRIG_reed_parvati_barks_K2Node_ActorBoundEvent_0_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_MakeLudwigAttackMechanicals();
+	void STATIC_BndEvt__TRIG_parvati_not_in_party_garage_barks_K2Node_ActorBoundEvent_108_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_PlayParvatiGarageBarks();
+	void STATIC_ContinueParvatiGarageBarks();
+	void STATIC_BndEvt__TRIG_parvati_not_in_party_garage_barks_exit_K2Node_ActorBoundEvent_119_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_abernathy_prison_bark_K2Node_ActorBoundEvent_118_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__NPC_reed_tobson_K2Node_ActorBoundEvent_0_ItemStackDelegate__DelegateSignature(const struct FItemStack& Item);
+	void STATIC_PostDialogReedParvatiBarks();
+	void STATIC_BndEvt__TRIG_make_generator_guards_hostile_K2Node_ActorBoundEvent_120_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__PQ_0001_PowerRegulator_133_K2Node_ActorBoundEvent_0_OnPickup__DelegateSignature(class AActor* Initiator);
+	void STATIC_BndEvt__NPC_guard_f1_K2Node_ActorBoundEvent_126_OnCombatStateChange__DelegateSignature(bool bIsInCombat, bool bRestoring);
+	void STATIC_BndEvt__NPC_guard_f2_K2Node_ActorBoundEvent_127_OnCombatStateChange__DelegateSignature(bool bIsInCombat, bool bRestoring);
+	void STATIC_BndEvt__NPC_guard_m1_K2Node_ActorBoundEvent_129_OnCombatStateChange__DelegateSignature(bool bIsInCombat, bool bRestoring);
+	void STATIC_BndEvt__NPC_guard_m3_K2Node_ActorBoundEvent_130_OnCombatStateChange__DelegateSignature(bool bIsInCombat, bool bRestoring);
+	void STATIC_BndEvt__NPC_guard_m4_patrol_K2Node_ActorBoundEvent_131_OnCombatStateChange__DelegateSignature(bool bIsInCombat, bool bRestoring);
+	void STATIC_ResetBarkStartGlobalsOnExitEvent();
+	void STATIC_BndEvt__EXAM_0002_Bounty01_2_K2Node_ActorBoundEvent_36_OnInteract__DelegateSignature(class AActor* Actor);
+	void STATIC_BndEvt__TRIG_reeds_office_K2Node_ActorBoundEvent_121_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_reeds_office_K2Node_ActorBoundEvent_122_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__Max_Comp_Male_3942_K2Node_ActorBoundEvent_0_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_UpdateParvatiWTT();
+	void STATIC_BndEvt__0002_Reed_3962_K2Node_ActorBoundEvent_0_CharacterDeath__DelegateSignature(class AActor* Instigator, const struct FCauseDamageInfo& CauseDamageInfo);
+	void STATIC_BndEvt__TRIG_pc_moves_behind_julius_K2Node_ActorBoundEvent_123_ActorBeginOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_BndEvt__TRIG_pc_moves_behind_julius_K2Node_ActorBoundEvent_124_ActorEndOverlapSignature__DelegateSignature(class AActor* OverlappedActor, class AActor* OtherActor);
+	void STATIC_ExecuteUbergraph_0002_SCR(int EntryPoint);
+};
+
+
+}
+
+#ifdef _MSC_VER
+	#pragma pack(pop)
+#endif

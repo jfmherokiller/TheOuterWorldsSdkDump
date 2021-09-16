@@ -6492,13 +6492,15 @@ void UImage::STATIC_SetBrushFromTexture(class UTexture2D* Texture, bool bMatchSi
 // Function UMG.Image.SetBrushFromSoftTexture
 // (Final, RequiredAPI, BlueprintAuthorityOnly, BlueprintCosmetic, Net, NetReliable, NetRequest, Exec, Native, Event, NetResponse, Static, NetMulticast)
 // Parameters:
+// TSoftObjectPtr<class UTexture2D> SoftTexture                    (Parm)
 // bool                           bMatchSize                     (Parm, ZeroConstructor, IsPlainOldData)
 
-void UImage::STATIC_SetBrushFromSoftTexture(bool bMatchSize)
+void UImage::STATIC_SetBrushFromSoftTexture(TSoftObjectPtr<class UTexture2D> SoftTexture, bool bMatchSize)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Image.SetBrushFromSoftTexture");
 
 	UImage_SetBrushFromSoftTexture_Params params;
+	params.SoftTexture = SoftTexture;
 	params.bMatchSize = bMatchSize;
 
 	auto flags = fn->FunctionFlags;

@@ -1787,14 +1787,16 @@ void UItem::STATIC_SetPlayerOwnership(bool bRemoveNonPlayerOwnership)
 // (Final, RequiredAPI, BlueprintAuthorityOnly, BlueprintCosmetic, Net, NetReliable, NetRequest, Exec, Native, Event, NetResponse, Static, NetMulticast)
 // Parameters:
 // class UClass*                  Faction                        (Parm, ZeroConstructor, IsPlainOldData)
+// TSoftObjectPtr<class AActor>   Actor                          (Parm)
 // bool                           bInPlayerOwned                 (Parm, ZeroConstructor, IsPlainOldData)
 
-void UItem::STATIC_SetOwnership(class UClass* Faction, bool bInPlayerOwned)
+void UItem::STATIC_SetOwnership(class UClass* Faction, TSoftObjectPtr<class AActor> Actor, bool bInPlayerOwned)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Indiana.Item.SetOwnership");
 
 	UItem_SetOwnership_Params params;
 	params.Faction = Faction;
+	params.Actor = Actor;
 	params.bInPlayerOwned = bInPlayerOwned;
 
 	auto flags = fn->FunctionFlags;
@@ -1810,14 +1812,16 @@ void UItem::STATIC_SetOwnership(class UClass* Faction, bool bInPlayerOwned)
 // (Final, RequiredAPI, BlueprintAuthorityOnly, BlueprintCosmetic, Net, NetReliable, NetRequest, Exec, Native, Event, NetResponse, Static, NetMulticast)
 // Parameters:
 // class UClass*                  Faction                        (Parm, ZeroConstructor, IsPlainOldData)
+// TSoftObjectPtr<class AActor>   Actor                          (Parm)
 // bool                           bRemovePlayerOwnership         (Parm, ZeroConstructor, IsPlainOldData)
 
-void UItem::STATIC_SetNonPlayerOwnership(class UClass* Faction, bool bRemovePlayerOwnership)
+void UItem::STATIC_SetNonPlayerOwnership(class UClass* Faction, TSoftObjectPtr<class AActor> Actor, bool bRemovePlayerOwnership)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Indiana.Item.SetNonPlayerOwnership");
 
 	UItem_SetNonPlayerOwnership_Params params;
 	params.Faction = Faction;
+	params.Actor = Actor;
 	params.bRemovePlayerOwnership = bRemovePlayerOwnership;
 
 	auto flags = fn->FunctionFlags;
@@ -1873,8 +1877,10 @@ class UClass* UItem::GetOwningFaction()
 
 // Function Indiana.Item.GetOwningActor
 // ()
+// Parameters:
+// TSoftObjectPtr<class AActor>   ReturnValue                    (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm)
 
-void UItem::GetOwningActor()
+TSoftObjectPtr<class AActor> UItem::GetOwningActor()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Indiana.Item.GetOwningActor");
 
@@ -1885,6 +1891,8 @@ void UItem::GetOwningActor()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -3375,12 +3383,15 @@ void UAudioLogManager::STATIC_OnCombatStateChanged(bool bInCombat, bool bRestori
 
 // Function Indiana.AudioLogManager.OnAudioLogLibraryLoaded
 // (Final, RequiredAPI, BlueprintAuthorityOnly, BlueprintCosmetic, Net, NetReliable, NetRequest, Exec, Native, Event, NetResponse, Static, NetMulticast)
+// Parameters:
+// TSoftObjectPtr<class UAudioLogLibraryDataAsset> LibraryDataAsset               (Parm)
 
-void UAudioLogManager::STATIC_OnAudioLogLibraryLoaded()
+void UAudioLogManager::STATIC_OnAudioLogLibraryLoaded(TSoftObjectPtr<class UAudioLogLibraryDataAsset> LibraryDataAsset)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Indiana.AudioLogManager.OnAudioLogLibraryLoaded");
 
 	UAudioLogManager_OnAudioLogLibraryLoaded_Params params;
+	params.LibraryDataAsset = LibraryDataAsset;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -14209,14 +14220,16 @@ void UCustomMaterialModVisual::STATIC_ApplyVectorParam(const struct FName& Mater
 // (Final, RequiredAPI, BlueprintAuthorityOnly, BlueprintCosmetic, Net, NetReliable, NetRequest, Exec, Native, Event, NetResponse, Static, NetMulticast)
 // Parameters:
 // struct FName                   ParamName                      (Parm, ZeroConstructor, IsPlainOldData)
+// TSoftObjectPtr<class UTexture> ParamValue                     (Parm)
 // struct FName                   OnlyApplyIfParamSet            (Parm, ZeroConstructor, IsPlainOldData)
 
-void UCustomMaterialModVisual::STATIC_ApplyTextureParamToAll(const struct FName& ParamName, const struct FName& OnlyApplyIfParamSet)
+void UCustomMaterialModVisual::STATIC_ApplyTextureParamToAll(const struct FName& ParamName, TSoftObjectPtr<class UTexture> ParamValue, const struct FName& OnlyApplyIfParamSet)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Indiana.CustomMaterialModVisual.ApplyTextureParamToAll");
 
 	UCustomMaterialModVisual_ApplyTextureParamToAll_Params params;
 	params.ParamName = ParamName;
+	params.ParamValue = ParamValue;
 	params.OnlyApplyIfParamSet = OnlyApplyIfParamSet;
 
 	auto flags = fn->FunctionFlags;
@@ -14233,14 +14246,16 @@ void UCustomMaterialModVisual::STATIC_ApplyTextureParamToAll(const struct FName&
 // Parameters:
 // struct FName                   MaterialSlotName               (Parm, ZeroConstructor, IsPlainOldData)
 // struct FName                   ParamName                      (Parm, ZeroConstructor, IsPlainOldData)
+// TSoftObjectPtr<class UTexture> ParamValue                     (Parm)
 
-void UCustomMaterialModVisual::STATIC_ApplyTextureParam(const struct FName& MaterialSlotName, const struct FName& ParamName)
+void UCustomMaterialModVisual::STATIC_ApplyTextureParam(const struct FName& MaterialSlotName, const struct FName& ParamName, TSoftObjectPtr<class UTexture> ParamValue)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Indiana.CustomMaterialModVisual.ApplyTextureParam");
 
 	UCustomMaterialModVisual_ApplyTextureParam_Params params;
 	params.MaterialSlotName = MaterialSlotName;
 	params.ParamName = ParamName;
+	params.ParamValue = ParamValue;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -27118,15 +27133,17 @@ void UIndianaGameplayStatics::STATIC_IndianaCancelAsyncLoadAsset(int Handle)
 // Function Indiana.IndianaGameplayStatics.IndianaAsyncLoadAsset
 // (Final, RequiredAPI, BlueprintAuthorityOnly, BlueprintCosmetic, Net, NetReliable, NetRequest, Exec, Native, Event, NetResponse, Static, NetMulticast)
 // Parameters:
+// TSoftObjectPtr<class UObject>  Asset                          (Parm)
 // int                            Priority                       (Parm, ZeroConstructor, IsPlainOldData)
 // struct FScriptDelegate         Callback                       (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 // int                            HandleOut                      (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UIndianaGameplayStatics::STATIC_IndianaAsyncLoadAsset(int Priority, const struct FScriptDelegate& Callback, int* HandleOut)
+void UIndianaGameplayStatics::STATIC_IndianaAsyncLoadAsset(TSoftObjectPtr<class UObject> Asset, int Priority, const struct FScriptDelegate& Callback, int* HandleOut)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Indiana.IndianaGameplayStatics.IndianaAsyncLoadAsset");
 
 	UIndianaGameplayStatics_IndianaAsyncLoadAsset_Params params;
+	params.Asset = Asset;
 	params.Priority = Priority;
 	params.Callback = Callback;
 

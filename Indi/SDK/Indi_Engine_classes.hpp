@@ -8345,8 +8345,8 @@ public:
 	void STATIC_SetSuppressViewportTransitionMessage(class UObject* WorldContextObject, bool bState);
 	void STATIC_SetStructurePropertyByName(class UObject* Object, const struct FName& PropertyName, const struct FGenericStruct& Value);
 	void STATIC_SetStringPropertyByName(class UObject* Object, const struct FName& PropertyName, const class FString& Value);
-	void STATIC_SetSoftObjectPropertyByName(class UObject* Object, const struct FName& PropertyName);
-	void STATIC_SetSoftClassPropertyByName(class UObject* Object, const struct FName& PropertyName);
+	void STATIC_SetSoftObjectPropertyByName(class UObject* Object, const struct FName& PropertyName, TSoftObjectPtr<class UObject> Value);
+	void STATIC_SetSoftClassPropertyByName(class UObject* Object, const struct FName& PropertyName, TSoftObjectPtr<class UClass> Value);
 	void STATIC_SetRotatorPropertyByName(class UObject* Object, const struct FName& PropertyName, const struct FRotator& Value);
 	void STATIC_SetObjectPropertyByName(class UObject* Object, const struct FName& PropertyName, class UObject* Value);
 	void STATIC_SetNamePropertyByName(class UObject* Object, const struct FName& PropertyName, const struct FName& Value);
@@ -8368,8 +8368,8 @@ public:
 	void STATIC_PrintString(class UObject* WorldContextObject, const class FString& inString, bool bPrintToScreen, bool bPrintToLog, const struct FLinearColor& TextColor, float Duration);
 	void STATIC_OnAssetLoaded__DelegateSignature(class UObject* Loaded);
 	void STATIC_OnAssetClassLoaded__DelegateSignature(class UClass* Loaded);
-	bool NotEqual_SoftObjectReference();
-	bool NotEqual_SoftClassReference();
+	bool NotEqual_SoftObjectReference(TSoftObjectPtr<class UObject> A, TSoftObjectPtr<class UObject> B);
+	bool NotEqual_SoftClassReference(TSoftObjectPtr<class UClass> A, TSoftObjectPtr<class UClass> B);
 	bool NotEqual_PrimaryAssetType(const struct FPrimaryAssetType& A, const struct FPrimaryAssetType& B);
 	bool NotEqual_PrimaryAssetId(const struct FPrimaryAssetId& A, const struct FPrimaryAssetId& B);
 	class FString NormalizeFilename(const class FString& InFilename);
@@ -8384,8 +8384,8 @@ public:
 	unsigned char MakeLiteralByte(unsigned char Value);
 	bool MakeLiteralBool(bool Value);
 	void STATIC_LoadInterstitialAd(int AdIdIndex);
-	void STATIC_LoadAssetClass(class UObject* WorldContextObject, const struct FScriptDelegate& OnLoaded, const struct FLatentActionInfo& LatentInfo);
-	void STATIC_LoadAsset(class UObject* WorldContextObject, const struct FScriptDelegate& OnLoaded, const struct FLatentActionInfo& LatentInfo);
+	void STATIC_LoadAssetClass(class UObject* WorldContextObject, TSoftObjectPtr<class UClass> AssetClass, const struct FScriptDelegate& OnLoaded, const struct FLatentActionInfo& LatentInfo);
+	void STATIC_LoadAsset(class UObject* WorldContextObject, TSoftObjectPtr<class UObject> Asset, const struct FScriptDelegate& OnLoaded, const struct FLatentActionInfo& LatentInfo);
 	bool LineTraceSingleForObjects(class UObject* WorldContextObject, const struct FVector& Start, const struct FVector& End, TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes, bool bTraceComplex, TArray<class AActor*> ActorsToIgnore, TEnumAsByte<EDrawDebugTrace> DrawDebugType, bool bIgnoreSelf, const struct FLinearColor& TraceColor, const struct FLinearColor& TraceHitColor, float DrawTime, struct FHitResult* OutHit);
 	bool LineTraceSingleByProfile(class UObject* WorldContextObject, const struct FVector& Start, const struct FVector& End, const struct FName& ProfileName, bool bTraceComplex, TArray<class AActor*> ActorsToIgnore, TEnumAsByte<EDrawDebugTrace> DrawDebugType, bool bIgnoreSelf, const struct FLinearColor& TraceColor, const struct FLinearColor& TraceHitColor, float DrawTime, struct FHitResult* OutHit);
 	bool LineTraceSingle(class UObject* WorldContextObject, const struct FVector& Start, const struct FVector& End, TEnumAsByte<ETraceTypeQuery> TraceChannel, bool bTraceComplex, TArray<class AActor*> ActorsToIgnore, TEnumAsByte<EDrawDebugTrace> DrawDebugType, bool bIgnoreSelf, const struct FLinearColor& TraceColor, const struct FLinearColor& TraceHitColor, float DrawTime, struct FHitResult* OutHit);
@@ -8422,8 +8422,8 @@ public:
 	void STATIC_K2_ClearTimerDelegate(const struct FScriptDelegate& Delegate);
 	void STATIC_K2_ClearTimer(class UObject* Object, const class FString& FunctionName);
 	void STATIC_K2_ClearAndInvalidateTimerHandle(class UObject* WorldContextObject, struct FTimerHandle* Handle);
-	bool IsValidSoftObjectReference();
-	bool IsValidSoftClassReference();
+	bool IsValidSoftObjectReference(TSoftObjectPtr<class UObject> SoftObjectReference);
+	bool IsValidSoftClassReference(TSoftObjectPtr<class UClass> SoftClassReference);
 	bool IsValidPrimaryAssetType(const struct FPrimaryAssetType& PrimaryAssetType);
 	bool IsValidPrimaryAssetId(const struct FPrimaryAssetId& PrimaryAssetId);
 	bool IsValidClass(class UClass* Class);
@@ -8442,8 +8442,8 @@ public:
 	bool GetVolumeButtonsHandledBySystem();
 	class FString GetUniqueDeviceId();
 	bool GetSupportedFullscreenResolutions(TArray<struct FIntPoint>* Resolutions);
-	void GetSoftObjectReferenceFromPrimaryAssetId(const struct FPrimaryAssetId& PrimaryAssetId);
-	void GetSoftClassReferenceFromPrimaryAssetId(const struct FPrimaryAssetId& PrimaryAssetId);
+	TSoftObjectPtr<class UObject> GetSoftObjectReferenceFromPrimaryAssetId(const struct FPrimaryAssetId& PrimaryAssetId);
+	TSoftObjectPtr<class UClass> GetSoftClassReferenceFromPrimaryAssetId(const struct FPrimaryAssetId& PrimaryAssetId);
 	int GetRenderingMaterialQualityLevel();
 	int GetRenderingDetailMode();
 	class FString GetProjectSavedDirectory();
@@ -8451,8 +8451,8 @@ public:
 	class FString GetProjectContentDirectory();
 	void STATIC_GetPrimaryAssetsWithBundleState(TArray<struct FName> RequiredBundles, TArray<struct FName> ExcludedBundles, TArray<struct FPrimaryAssetType> ValidTypes, bool bForceCurrentState, TArray<struct FPrimaryAssetId>* OutPrimaryAssetIdList);
 	void STATIC_GetPrimaryAssetIdList(const struct FPrimaryAssetType& PrimaryAssetType, TArray<struct FPrimaryAssetId>* OutPrimaryAssetIdList);
-	struct FPrimaryAssetId GetPrimaryAssetIdFromSoftObjectReference();
-	struct FPrimaryAssetId GetPrimaryAssetIdFromSoftClassReference();
+	struct FPrimaryAssetId GetPrimaryAssetIdFromSoftObjectReference(TSoftObjectPtr<class UObject> SoftObjectReference);
+	struct FPrimaryAssetId GetPrimaryAssetIdFromSoftClassReference(TSoftObjectPtr<class UClass> SoftClassReference);
 	struct FPrimaryAssetId GetPrimaryAssetIdFromObject(class UObject* Object);
 	struct FPrimaryAssetId GetPrimaryAssetIdFromClass(class UClass* Class);
 	TArray<class FString> GetPreferredLanguages();
@@ -8487,8 +8487,8 @@ public:
 	void STATIC_FlushPersistentDebugLines(class UObject* WorldContextObject);
 	void STATIC_FlushDebugStrings(class UObject* WorldContextObject);
 	void STATIC_ExecuteConsoleCommand(class UObject* WorldContextObject, const class FString& Command, class APlayerController* SpecificPlayer);
-	bool EqualEqual_SoftObjectReference();
-	bool EqualEqual_SoftClassReference();
+	bool EqualEqual_SoftObjectReference(TSoftObjectPtr<class UObject> A, TSoftObjectPtr<class UObject> B);
+	bool EqualEqual_SoftClassReference(TSoftObjectPtr<class UClass> A, TSoftObjectPtr<class UClass> B);
 	bool EqualEqual_PrimaryAssetType(const struct FPrimaryAssetType& A, const struct FPrimaryAssetType& B);
 	bool EqualEqual_PrimaryAssetId(const struct FPrimaryAssetId& A, const struct FPrimaryAssetId& B);
 	int EndTransaction();
@@ -8514,15 +8514,15 @@ public:
 	void STATIC_CreateCopyForUndoBuffer(class UObject* ObjectToModify);
 	class FString ConvertToRelativePath(const class FString& Filename);
 	class FString ConvertToAbsolutePath(const class FString& Filename);
-	class FString Conv_SoftObjectReferenceToString();
-	class UObject* Conv_SoftObjectReferenceToObject();
-	class FString Conv_SoftClassReferenceToString();
-	class UClass* Conv_SoftClassReferenceToClass();
+	class FString Conv_SoftObjectReferenceToString(TSoftObjectPtr<class UObject> SoftObjectReference);
+	class UObject* Conv_SoftObjectReferenceToObject(TSoftObjectPtr<class UObject> SoftObject);
+	class FString Conv_SoftClassReferenceToString(TSoftObjectPtr<class UClass> SoftClassReference);
+	class UClass* Conv_SoftClassReferenceToClass(TSoftObjectPtr<class UClass> SoftClass);
 	class FString Conv_PrimaryAssetTypeToString(const struct FPrimaryAssetType& PrimaryAssetType);
 	class FString Conv_PrimaryAssetIdToString(const struct FPrimaryAssetId& PrimaryAssetId);
-	void Conv_ObjectToSoftObjectReference(class UObject* Object);
+	TSoftObjectPtr<class UObject> Conv_ObjectToSoftObjectReference(class UObject* Object);
 	class UObject* Conv_InterfaceToObject(const TScriptInterface<class UInterface>& Interface);
-	void Conv_ClassToSoftClassReference(class UClass* Class);
+	TSoftObjectPtr<class UClass> Conv_ClassToSoftClassReference(class UClass* Class);
 	void STATIC_ControlScreensaver(bool bAllowScreenSaver);
 	bool ComponentOverlapComponents(class UPrimitiveComponent* Component, const struct FTransform& ComponentTransform, TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes, class UClass* ComponentClassFilter, TArray<class AActor*> ActorsToIgnore, TArray<class UPrimitiveComponent*>* OutComponents);
 	bool ComponentOverlapActors(class UPrimitiveComponent* Component, const struct FTransform& ComponentTransform, TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes, class UClass* ActorClassFilter, TArray<class AActor*> ActorsToIgnore, TArray<class AActor*>* OutActors);
@@ -8767,7 +8767,7 @@ public:
 	}
 
 
-	class ULevelStreamingDynamic* LoadLevelInstanceBySoftObjectPtr(class UObject* WorldContextObject, const struct FVector& Location, const struct FRotator& Rotation, bool* bOutSuccess);
+	class ULevelStreamingDynamic* LoadLevelInstanceBySoftObjectPtr(class UObject* WorldContextObject, TSoftObjectPtr<class UWorld> Level, const struct FVector& Location, const struct FRotator& Rotation, bool* bOutSuccess);
 	class ULevelStreamingDynamic* LoadLevelInstance(class UObject* WorldContextObject, const class FString& LevelName, const struct FVector& Location, const struct FRotator& Rotation, bool* bOutSuccess);
 };
 

@@ -1911,6 +1911,7 @@ struct UImage_SetBrushFromTexture_Params
 // Function UMG.Image.SetBrushFromSoftTexture
 struct UImage_SetBrushFromSoftTexture_Params
 {
+	TSoftObjectPtr<class UTexture2D>                   SoftTexture;                                              // (Parm)
 	bool                                               bMatchSize;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 

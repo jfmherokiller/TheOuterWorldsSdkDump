@@ -84,12 +84,12 @@ struct FFaceFXEntry
 {
 	class USkeletalMeshComponent*                      SkelMeshComp;                                             // 0x0000(0x0008) (BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class UActorComponent*                             AudioComp;                                                // 0x0000(0x0008) (BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0008(0x0028) UNKNOWN PROPERTY: SoftObjectProperty FaceFX.FaceFXEntry.Asset
+	TSoftObjectPtr<class UFaceFXActor>                 Asset;                                                    // 0x0000(0x0028) (Edit, BlueprintVisible, BlueprintReadOnly)
 	class UFaceFXCharacter*                            Character;                                                // 0x0000(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData)
 	unsigned char                                      bIsAutoPlaySound : 1;                                     // 0x0000(0x0001) (Edit, BlueprintVisible)
 	unsigned char                                      bIsDisableMorphTargets : 1;                               // 0x0000(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
 	unsigned char                                      bIsDisableMaterialParameters : 1;                         // 0x0000(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
-	unsigned char                                      UnknownData01[0x47];                                      // 0x0001(0x0047) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x47];                                      // 0x0001(0x0047) MISSED OFFSET
 };
 
 // ScriptStruct FaceFX.FaceFXTrackKey
@@ -98,12 +98,12 @@ struct FFaceFXTrackKey
 {
 	struct FFaceFXSkelMeshComponentId                  SkelMeshComponentId;                                      // 0x0000(0x0010) (Edit)
 	struct FFaceFXAnimId                               AnimationId;                                              // 0x0000(0x0010) (Edit)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0010(0x0028) UNKNOWN PROPERTY: SoftObjectProperty FaceFX.FaceFXTrackKey.Animation
+	TSoftObjectPtr<class UFaceFXAnim>                  Animation;                                                // 0x0000(0x0028) (Edit)
 	float                                              Time;                                                     // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      bLoop : 1;                                                // 0x0000(0x0001) (Edit)
 	unsigned char                                      bIsAnimationDurationLoaded : 1;                           // 0x0000(0x0001) (Transient)
 	float                                              AnimationDuration;                                        // 0x0000(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x54];                                      // 0x0004(0x0054) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x54];                                      // 0x0004(0x0054) MISSED OFFSET
 };
 
 // ScriptStruct FaceFX.AnimNode_BlendFaceFXAnimation
@@ -125,8 +125,8 @@ struct FFaceFXAnimComponentSet
 {
 	struct FFaceFXSkelMeshComponentId                  SkelMeshComponentId;                                      // 0x0000(0x0010) (Edit)
 	struct FFaceFXAnimId                               AnimationId;                                              // 0x0000(0x0010) (Edit)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0010(0x0028) UNKNOWN PROPERTY: SoftObjectProperty FaceFX.FaceFXAnimComponentSet.Animation
-	unsigned char                                      UnknownData01[0x20];                                      // 0x0028(0x0020) MISSED OFFSET
+	TSoftObjectPtr<class UFaceFXAnim>                  Animation;                                                // 0x0000(0x0028) (Edit)
+	unsigned char                                      UnknownData00[0x20];                                      // 0x0028(0x0020) MISSED OFFSET
 };
 
 // ScriptStruct FaceFX.FaceFXAnimationSectionData
@@ -136,14 +136,14 @@ struct FFaceFXAnimationSectionData
 	struct FGuid                                       TrackId;                                                  // 0x0000(0x0010) (ZeroConstructor, IsPlainOldData)
 	int                                                RowIndex;                                                 // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
 	struct FFaceFXAnimId                               AnimationId;                                              // 0x0000(0x0010)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0010(0x0028) UNKNOWN PROPERTY: SoftObjectProperty FaceFX.FaceFXAnimationSectionData.Animation
+	TSoftObjectPtr<class UFaceFXAnim>                  Animation;                                                // 0x0000(0x0028)
 	struct FFaceFXSkelMeshComponentId                  ComponentId;                                              // 0x0000(0x0010)
 	float                                              AnimDuration;                                             // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
 	float                                              StartOffset;                                              // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
 	float                                              EndOffset;                                                // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
 	struct FFrameNumber                                StartTime;                                                // 0x0000(0x0004)
 	struct FFrameNumber                                EndTime;                                                  // 0x0000(0x0004)
-	unsigned char                                      UnknownData01[0x74];                                      // 0x0004(0x0074) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x74];                                      // 0x0004(0x0074) MISSED OFFSET
 };
 
 // ScriptStruct FaceFX.FaceFXAnimationSectionTemplate

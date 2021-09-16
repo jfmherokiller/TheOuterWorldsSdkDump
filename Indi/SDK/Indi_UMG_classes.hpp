@@ -932,7 +932,7 @@ public:
 	void STATIC_SetBrushSize(const struct FVector2D& DesiredSize);
 	void STATIC_SetBrushFromTextureDynamic(class UTexture2DDynamic* Texture, bool bMatchSize);
 	void STATIC_SetBrushFromTexture(class UTexture2D* Texture, bool bMatchSize);
-	void STATIC_SetBrushFromSoftTexture(bool bMatchSize);
+	void STATIC_SetBrushFromSoftTexture(TSoftObjectPtr<class UTexture2D> SoftTexture, bool bMatchSize);
 	void STATIC_SetBrushFromMaterial(class UMaterialInterface* Material);
 	void STATIC_SetBrushFromAtlasInterface(const TScriptInterface<class USlateTextureAtlasInterface>& AtlasRegion, bool bMatchSize);
 	void STATIC_SetBrushFromAsset(class USlateBrushAsset* Asset);

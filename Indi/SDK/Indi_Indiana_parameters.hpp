@@ -532,6 +532,7 @@ struct UItem_SetPlayerOwnership_Params
 struct UItem_SetOwnership_Params
 {
 	class UClass*                                      Faction;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	TSoftObjectPtr<class AActor>                       Actor;                                                    // (Parm)
 	bool                                               bInPlayerOwned;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
@@ -539,6 +540,7 @@ struct UItem_SetOwnership_Params
 struct UItem_SetNonPlayerOwnership_Params
 {
 	class UClass*                                      Faction;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	TSoftObjectPtr<class AActor>                       Actor;                                                    // (Parm)
 	bool                                               bRemovePlayerOwnership;                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
@@ -557,6 +559,7 @@ struct UItem_GetOwningFaction_Params
 // Function Indiana.Item.GetOwningActor
 struct UItem_GetOwningActor_Params
 {
+	TSoftObjectPtr<class AActor>                       ReturnValue;                                              // (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm)
 };
 
 // Function Indiana.Item.ClearPlayerOwnership
@@ -996,6 +999,7 @@ struct UAudioLogManager_OnCombatStateChanged_Params
 // Function Indiana.AudioLogManager.OnAudioLogLibraryLoaded
 struct UAudioLogManager_OnAudioLogLibraryLoaded_Params
 {
+	TSoftObjectPtr<class UAudioLogLibraryDataAsset>    LibraryDataAsset;                                         // (Parm)
 };
 
 // Function Indiana.AudioLogManager.IsPlayingAudioLog
@@ -4197,6 +4201,7 @@ struct UCustomMaterialModVisual_ApplyVectorParam_Params
 struct UCustomMaterialModVisual_ApplyTextureParamToAll_Params
 {
 	struct FName                                       ParamName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	TSoftObjectPtr<class UTexture>                     ParamValue;                                               // (Parm)
 	struct FName                                       OnlyApplyIfParamSet;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
@@ -4205,6 +4210,7 @@ struct UCustomMaterialModVisual_ApplyTextureParam_Params
 {
 	struct FName                                       MaterialSlotName;                                         // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FName                                       ParamName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	TSoftObjectPtr<class UTexture>                     ParamValue;                                               // (Parm)
 };
 
 // Function Indiana.CustomMaterialModVisual.ApplyScalarParamToAll
@@ -8029,6 +8035,7 @@ struct UIndianaGameplayStatics_IndianaCancelAsyncLoadAsset_Params
 // Function Indiana.IndianaGameplayStatics.IndianaAsyncLoadAsset
 struct UIndianaGameplayStatics_IndianaAsyncLoadAsset_Params
 {
+	TSoftObjectPtr<class UObject>                      Asset;                                                    // (Parm)
 	int                                                Priority;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FScriptDelegate                             Callback;                                                 // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	int                                                HandleOut;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)

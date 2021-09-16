@@ -7696,10 +7696,10 @@ struct FBodyPart
 // 0x0078
 struct FAptitudeTextures
 {
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0000(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.AptitudeTextures.Uninteractable
-	unsigned char                                      UnknownData01[0x28];                                      // 0x0028(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.AptitudeTextures.Highlighted
-	unsigned char                                      UnknownData02[0x28];                                      // 0x0028(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.AptitudeTextures.Icon
-	unsigned char                                      UnknownData03[0x50];                                      // 0x0028(0x0050) MISSED OFFSET
+	TSoftObjectPtr<class UTexture>                     Uninteractable;                                           // 0x0000(0x0028) (Edit)
+	TSoftObjectPtr<class UTexture>                     Highlighted;                                              // 0x0000(0x0028) (Edit)
+	TSoftObjectPtr<class UTexture>                     Icon;                                                     // 0x0000(0x0028) (Edit)
+	unsigned char                                      UnknownData00[0x50];                                      // 0x0028(0x0050) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.ArmorData
@@ -7787,8 +7787,8 @@ struct FNewArmorModVisual
 {
 	class UModAppearances*                             ModAppearances;                                           // 0x0000(0x0008) (Edit, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 	bool                                               bAppliesToAllArmorSets;                                   // 0x0000(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0001(0x0010) UNKNOWN PROPERTY: ArrayProperty Indiana.NewArmorModVisual.ArmorSets
-	unsigned char                                      UnknownData01[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
+	TArray<TSoftObjectPtr<class UClass>>               ArmorSets;                                                // 0x0000(0x0010) (Edit, ZeroConstructor)
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0010(0x0010) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.ArmorVisualProperties
@@ -7807,8 +7807,8 @@ struct FArmorVisualProperties
 struct FNewArmorSetModVisual
 {
 	class UModAppearances*                             ModAppearances;                                           // 0x0000(0x0008) (Edit, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0008(0x0010) UNKNOWN PROPERTY: ArrayProperty Indiana.NewArmorSetModVisual.ArmorMods
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
+	TArray<TSoftObjectPtr<class UClass>>               ArmorMods;                                                // 0x0000(0x0010) (Edit, ZeroConstructor)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.ArmorSetModSlot
@@ -7979,9 +7979,9 @@ struct FCustomShotAngles
 // 0x0050 (0x0090 - 0x0040)
 struct FBeardAppearance : public FAppearanceMatch
 {
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0040(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.BeardAppearance.Mesh
-	unsigned char                                      UnknownData01[0x28];                                      // 0x0028(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.BeardAppearance.BeardTexture
-	unsigned char                                      UnknownData02[0x68];                                      // 0x0028(0x0068) MISSED OFFSET
+	TSoftObjectPtr<class USkeletalMesh>                Mesh;                                                     // 0x0000(0x0028) (Edit)
+	TSoftObjectPtr<class UTexture>                     BeardTexture;                                             // 0x0000(0x0028) (Edit)
+	unsigned char                                      UnknownData00[0x68];                                      // 0x0028(0x0068) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.AIStateHistory
@@ -8178,21 +8178,21 @@ struct FBlockProperties
 struct FAppearanceGoreCap
 {
 	struct FGameplayTagContainer                       BodyParts;                                                // 0x0000(0x0020) (Edit)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0020(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.AppearanceGoreCap.UpperCap
-	unsigned char                                      UnknownData01[0x28];                                      // 0x0028(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.AppearanceGoreCap.LowerCap
-	unsigned char                                      UnknownData02[0x28];                                      // 0x0028(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.AppearanceGoreCap.SkinnedCap
-	unsigned char                                      UnknownData03[0x70];                                      // 0x0028(0x0070) MISSED OFFSET
+	TSoftObjectPtr<class UStaticMesh>                  UpperCap;                                                 // 0x0000(0x0028) (Edit)
+	TSoftObjectPtr<class UStaticMesh>                  LowerCap;                                                 // 0x0000(0x0028) (Edit)
+	TSoftObjectPtr<class USkeletalMesh>                SkinnedCap;                                               // 0x0000(0x0028) (Edit)
+	unsigned char                                      UnknownData00[0x70];                                      // 0x0028(0x0070) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.BodyAppearance
 // 0x00B0 (0x00F0 - 0x0040)
 struct FBodyAppearance : public FAppearanceMatch
 {
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0040(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.BodyAppearance.BodyMesh
-	unsigned char                                      UnknownData01[0x50];                                      // 0x0028(0x0050) UNKNOWN PROPERTY: MapProperty Indiana.BodyAppearance.MaterialOverrides
+	TSoftObjectPtr<class USkeletalMesh>                BodyMesh;                                                 // 0x0000(0x0028) (Edit)
+	TMap<struct FName, TSoftObjectPtr<class UMaterialInterface>> MaterialOverrides;                                        // 0x0000(0x0050) (Edit, ZeroConstructor)
 	TArray<struct FAppearanceGoreCap>                  GoreCaps;                                                 // 0x0000(0x0010) (Edit, ZeroConstructor)
-	unsigned char                                      UnknownData02[0x28];                                      // 0x0010(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.BodyAppearance.Footsteps
-	unsigned char                                      UnknownData03[0xC8];                                      // 0x0028(0x00C8) MISSED OFFSET
+	TSoftObjectPtr<class UFootstepData>                Footsteps;                                                // 0x0000(0x0028) (Edit)
+	unsigned char                                      UnknownData00[0xC8];                                      // 0x0028(0x00C8) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.SpellEffectApplyChance
@@ -8378,9 +8378,9 @@ struct FBoneModificationUIWrapper
 struct FSkillCategoryDetail
 {
 	ESkillCategory                                     Category;                                                 // 0x0000(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0001(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.SkillCategoryDetail.Icon
+	TSoftObjectPtr<class UTexture2D>                   Icon;                                                     // 0x0000(0x0028) (Edit)
 	TArray<ESkill>                                     AssociatedSkills;                                         // 0x0000(0x0010) (Edit, ZeroConstructor)
-	unsigned char                                      UnknownData01[0x30];                                      // 0x0010(0x0030) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x30];                                      // 0x0010(0x0030) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.DeathClassRow
@@ -8974,9 +8974,9 @@ struct FDistanceRatioToSpeedPair
 struct FComputerBrandData
 {
 	TArray<struct FLocString>                          BrandSlogans;                                             // 0x0000(0x0010) (Edit, ZeroConstructor, DisableEditOnInstance)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0010(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.ComputerBrandData.BrandIcon
+	TSoftObjectPtr<class UTexture2D>                   BrandIcon;                                                // 0x0000(0x0028) (Edit, DisableEditOnInstance)
 	struct FLocString                                  BrandName;                                                // 0x0000(0x0008) (Edit, DisableEditOnInstance)
-	unsigned char                                      UnknownData01[0x38];                                      // 0x0008(0x0038) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x38];                                      // 0x0008(0x0038) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.CharacterDescription
@@ -9030,6 +9030,15 @@ struct FTalkDependencies
 	class UAnimMontage*                                AnimMontage;                                              // 0x0000(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
 	class UFaceFXAnim*                                 AnimFaceFX;                                               // 0x0000(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x88];                                      // 0x0008(0x0088) MISSED OFFSET
+};
+
+// ScriptStruct Indiana.CoverAssetCollisionData
+// 0x0040
+struct FCoverAssetCollisionData
+{
+	struct FVector                                     BoxExtent;                                                // 0x0000(0x000C) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+	struct FTransform                                  Transform;                                                // 0x0000(0x0030) (Edit, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0030(0x0010) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.CreditsEntry
@@ -9781,9 +9790,9 @@ struct FHUDFadeSettings
 // 0x0050 (0x0090 - 0x0040)
 struct FHairAppearance : public FAppearanceMatch
 {
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0040(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.HairAppearance.StandardMesh
-	unsigned char                                      UnknownData01[0x28];                                      // 0x0028(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.HairAppearance.CappedMesh
-	unsigned char                                      UnknownData02[0x68];                                      // 0x0028(0x0068) MISSED OFFSET
+	TSoftObjectPtr<class USkeletalMesh>                StandardMesh;                                             // 0x0000(0x0028) (Edit)
+	TSoftObjectPtr<class USkeletalMesh>                CappedMesh;                                               // 0x0000(0x0028) (Edit)
+	unsigned char                                      UnknownData00[0x68];                                      // 0x0028(0x0068) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.TrackingSetting
@@ -9800,10 +9809,10 @@ struct FTrackingSetting
 // 0x0080 (0x00C0 - 0x0040)
 struct FNewHeadAppearance : public FAppearanceMatch
 {
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0040(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.NewHeadAppearance.HeadMesh
-	unsigned char                                      UnknownData01[0x50];                                      // 0x0028(0x0050) UNKNOWN PROPERTY: MapProperty Indiana.NewHeadAppearance.MaterialOverrides
+	TSoftObjectPtr<class USkeletalMesh>                HeadMesh;                                                 // 0x0000(0x0028) (Edit)
+	TMap<struct FName, TSoftObjectPtr<class UMaterialInterface>> MaterialOverrides;                                        // 0x0000(0x0050) (Edit, ZeroConstructor)
 	struct FName                                       HairMorphTarget;                                          // 0x0000(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0xB8];                                      // 0x0008(0x00B8) MISSED OFFSET
+	unsigned char                                      UnknownData00[0xB8];                                      // 0x0008(0x00B8) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.AreaHeightTile
@@ -9811,8 +9820,8 @@ struct FNewHeadAppearance : public FAppearanceMatch
 struct FAreaHeightTile
 {
 	struct FBox2D                                      WorldArea;                                                // 0x0000(0x0014) (Edit, ZeroConstructor, EditConst)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0014(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.AreaHeightTile.HeightmapData
-	unsigned char                                      UnknownData01[0x30];                                      // 0x0028(0x0030) MISSED OFFSET
+	TSoftObjectPtr<class UHeightmapData>               HeightmapData;                                            // 0x0000(0x0028) (Edit, EditConst)
+	unsigned char                                      UnknownData00[0x30];                                      // 0x0028(0x0030) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.HeightValuesTexture
@@ -9836,7 +9845,7 @@ struct FHitLocationChance
 // 0x0050
 struct FImpactAudioDamageTypeOverlays
 {
-	unsigned char                                      UnknownData00[0x50];                                      // 0x0000(0x0050) UNKNOWN PROPERTY: MapProperty Indiana.ImpactAudioDamageTypeOverlays.DamageTypeOverlays
+	TMap<TSoftObjectPtr<class UClass>, class UAkAudioEvent*> DamageTypeOverlays;                                       // 0x0000(0x0050) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 };
 
 // ScriptStruct Indiana.ImpactAIDataOverride
@@ -9989,12 +9998,12 @@ struct FTagToAudioList
 // 0x0050
 struct FWeightedImageData
 {
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0000(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.WeightedImageData.Image
+	TSoftObjectPtr<class UTexture2D>                   Image;                                                    // 0x0000(0x0028) (Edit)
 	bool                                               bCanShowTips;                                             // 0x0000(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	float                                              Weight;                                                   // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	float                                              WeightDecay;                                              // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	struct FGuid                                       ID;                                                       // 0x0000(0x0010) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x40];                                      // 0x0010(0x0040) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x40];                                      // 0x0010(0x0040) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.LoadingImageContainer
@@ -10018,7 +10027,7 @@ struct FConditionalizedLoadingImageContainer
 // 0x0010
 struct FLoadingScreenRegionMaps
 {
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0000(0x0010) UNKNOWN PROPERTY: ArrayProperty Indiana.LoadingScreenRegionMaps.Maps
+	TArray<TSoftObjectPtr<class UWorld>>               Maps;                                                     // 0x0000(0x0010) (Edit, ZeroConstructor)
 };
 
 // ScriptStruct Indiana.ConditionalizedLoadingTips
@@ -10198,12 +10207,12 @@ struct FConditionalMusicTrack
 struct FMapFloorData
 {
 	struct FLocString                                  FloorName;                                                // 0x0000(0x0008) (Edit, DisableEditOnInstance)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0008(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.MapFloorData.MapImage
+	TSoftObjectPtr<class UTexture2D>                   MapImage;                                                 // 0x0000(0x0028) (Edit, DisableEditOnInstance)
 	struct FVector2D                                   MapMinBounds;                                             // 0x0000(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	struct FVector2D                                   MapMaxBounds;                                             // 0x0000(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	uint32_t                                           FloorLevel;                                               // 0x0000(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              GamepadMovementScalar;                                    // 0x0000(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x44];                                      // 0x0004(0x0044) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x44];                                      // 0x0004(0x0044) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.PointOfInterestLocation
@@ -10236,8 +10245,8 @@ struct FMaterialParamMod
 	EMaterialParamType                                 Type;                                                     // 0x0000(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	float                                              ScalarParam;                                              // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	struct FLinearColor                                VectorParam;                                              // 0x0000(0x0010) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0010(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.MaterialParamMod.TextureParam
-	unsigned char                                      UnknownData01[0x38];                                      // 0x0028(0x0038) MISSED OFFSET
+	TSoftObjectPtr<class UTexture>                     TextureParam;                                             // 0x0000(0x0028) (Edit)
+	unsigned char                                      UnknownData00[0x38];                                      // 0x0028(0x0038) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.MeleeAnimEvent
@@ -10665,8 +10674,8 @@ struct FCachedGameState
 struct FScaledActorEntry
 {
 	int                                                MinPlayerLevel;                                           // 0x0000(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0004(0x0028) UNKNOWN PROPERTY: SoftClassProperty Indiana.ScaledActorEntry.ActorClass
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
+	TSoftObjectPtr<class UClass>                       ActorClass;                                               // 0x0000(0x0028) (Edit, DisableEditOnInstance)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.HUDSetting
@@ -10764,6 +10773,13 @@ struct FGamepadLayout
 struct FDynamicOverrides
 {
 	struct FLocString                                  AutoSprintName;                                           // 0x0000(0x0008) (Edit, BlueprintVisible)
+};
+
+// ScriptStruct Indiana.MapShipDestinations
+// 0x0050
+struct FMapShipDestinations
+{
+	TMap<struct FGuid, class UShipDestinationData*>    Destinations;                                             // 0x0000(0x0050) (Edit, ZeroConstructor, EditConst)
 };
 
 // ScriptStruct Indiana.IndianaSliderStyle
@@ -11222,19 +11238,19 @@ struct FWeaponModSlot
 // 0x0018
 struct FWeaponModVisualOverride
 {
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0000(0x0010) UNKNOWN PROPERTY: ArrayProperty Indiana.WeaponModVisualOverride.Mods
+	TArray<TSoftObjectPtr<class UClass>>               Mods;                                                     // 0x0000(0x0010) (Edit, ZeroConstructor)
 	class UModVisual*                                  VisualOverride;                                           // 0x0000(0x0008) (Edit, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x10];                                      // 0x0008(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0008(0x0010) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.WeaponModProjectileOverride
 // 0x0060
 struct FWeaponModProjectileOverride
 {
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0000(0x0010) UNKNOWN PROPERTY: ArrayProperty Indiana.WeaponModProjectileOverride.Mods
-	unsigned char                                      UnknownData01[0x28];                                      // 0x0010(0x0028) UNKNOWN PROPERTY: SoftClassProperty Indiana.WeaponModProjectileOverride.OverrideProjectileClass
-	unsigned char                                      UnknownData02[0x28];                                      // 0x0028(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Indiana.WeaponModProjectileOverride.OverrideInstantHitData
-	unsigned char                                      UnknownData03[0x38];                                      // 0x0028(0x0038) MISSED OFFSET
+	TArray<TSoftObjectPtr<class UClass>>               Mods;                                                     // 0x0000(0x0010) (Edit, ZeroConstructor)
+	TSoftObjectPtr<class UClass>                       OverrideProjectileClass;                                  // 0x0000(0x0028) (Edit)
+	TSoftObjectPtr<class UInstantHitData>              OverrideInstantHitData;                                   // 0x0000(0x0028) (Edit)
+	unsigned char                                      UnknownData00[0x38];                                      // 0x0028(0x0038) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.HitTypeData
@@ -11598,15 +11614,6 @@ struct FNodeConfig
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
 };
 
-// ScriptStruct Indiana.CoverAssetCollisionData
-// 0x0040
-struct FCoverAssetCollisionData
-{
-	struct FVector                                     BoxExtent;                                                // 0x0000(0x000C) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
-	struct FTransform                                  Transform;                                                // 0x0000(0x0030) (Edit, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0030(0x0010) MISSED OFFSET
-};
-
 // ScriptStruct Indiana.ReceiveDamageData
 // 0x0048
 struct FReceiveDamageData
@@ -11677,9 +11684,9 @@ struct FBlockedActorData
 	int                                                Slot;                                                     // 0x0000(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
 	EEntryLocationStatus                               LocationStatus;                                           // 0x0000(0x0001) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0004(0x0003) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
-	unsigned char                                      UnknownData01[0x10];                                      // 0x0004(0x0010) UNKNOWN PROPERTY: ArrayProperty Indiana.BlockedActorData.BlockingActors
-	unsigned char                                      UnknownData02[0x10];                                      // 0x0010(0x0010) UNKNOWN PROPERTY: ArrayProperty Indiana.BlockedActorData.BlockingComponents
-	unsigned char                                      UnknownData03[0x18];                                      // 0x0010(0x0018) MISSED OFFSET
+	TArray<TSoftObjectPtr<class AActor>>               BlockingActors;                                           // 0x0000(0x0010) (Edit, ZeroConstructor, EditConst)
+	TArray<TSoftObjectPtr<class UPrimitiveComponent>>  BlockingComponents;                                       // 0x0000(0x0010) (Edit, ExportObject, ZeroConstructor, EditConst)
+	unsigned char                                      UnknownData01[0x18];                                      // 0x0010(0x0018) MISSED OFFSET
 };
 
 // ScriptStruct Indiana.DelayedEventData
@@ -11903,13 +11910,6 @@ struct FDependencyLoadRequest
 struct FDestroyedPrePlacedActorRegistry
 {
 	unsigned char                                      UnknownData00[0x50];                                      // 0x0000(0x0050) MISSED OFFSET
-};
-
-// ScriptStruct Indiana.MapShipDestinations
-// 0x0050
-struct FMapShipDestinations
-{
-	TMap<struct FGuid, class UShipDestinationData*>    Destinations;                                             // 0x0000(0x0050) (Edit, ZeroConstructor, EditConst)
 };
 
 // ScriptStruct Indiana.StatusEffectSerializationContext

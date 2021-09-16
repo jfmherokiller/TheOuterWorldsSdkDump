@@ -5685,12 +5685,12 @@ struct FTriggerData
 	ETriggerGroup                                      TriggerGroup;                                             // 0x0000(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	uint32_t                                           ActivationLimit;                                          // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	float                                              ReactivationDelay;                                        // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0004(0x0010) UNKNOWN PROPERTY: ArrayProperty Engine.TriggerData.ValidActivators
+	TArray<TSoftObjectPtr<class UClass>>               ValidActivators;                                          // 0x0000(0x0010) (Edit, ZeroConstructor)
 	uint32_t                                           ActivationCount;                                          // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
 	float                                              LastActivationTime;                                       // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
 	TArray<struct FGuid>                               ValidatedOverlappedActorGUIDs;                            // 0x0000(0x0010) (ZeroConstructor)
 	TArray<TWeakObjectPtr<class AActor>>               ValidatedOverlappedActors;                                // 0x0000(0x0010) (ZeroConstructor)
-	unsigned char                                      UnknownData01[0x38];                                      // 0x0010(0x0038) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x38];                                      // 0x0010(0x0038) MISSED OFFSET
 };
 
 // ScriptStruct Engine.ActiveForceFeedbackEffect
@@ -6528,7 +6528,7 @@ struct FPrimaryAssetRules
 struct FPrimaryAssetTypeInfo
 {
 	struct FName                                       PrimaryAssetType;                                         // 0x0000(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0008(0x0028) UNKNOWN PROPERTY: SoftClassProperty Engine.PrimaryAssetTypeInfo.AssetBaseClass
+	TSoftObjectPtr<class UClass>                       AssetBaseClass;                                           // 0x0000(0x0028) (Edit)
 	class UClass*                                      AssetBaseClassLoaded;                                     // 0x0000(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
 	bool                                               bHasBlueprintClasses;                                     // 0x0000(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	bool                                               bIsEditorOnly;                                            // 0x0000(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
@@ -6538,7 +6538,7 @@ struct FPrimaryAssetTypeInfo
 	TArray<class FString>                              AssetScanPaths;                                           // 0x0000(0x0010) (ZeroConstructor, Transient)
 	bool                                               bIsDynamicAsset;                                          // 0x0000(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
 	int                                                NumberOfAssets;                                           // 0x0000(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x84];                                      // 0x0004(0x0084) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x84];                                      // 0x0004(0x0084) MISSED OFFSET
 };
 
 // ScriptStruct Engine.PrimaryAssetRulesOverride
@@ -8443,7 +8443,7 @@ struct FPoseDataContainer
 // 0x0028
 struct FPreviewMeshCollectionEntry
 {
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0000(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Engine.PreviewMeshCollectionEntry.SkeletalMesh
+	TSoftObjectPtr<class USkeletalMesh>                SkeletalMesh;                                             // 0x0000(0x0028) (Edit)
 };
 
 // ScriptStruct Engine.CollectionReference
@@ -10777,9 +10777,9 @@ struct FFunctionExpressionInput
 struct FScalarParameterAtlasInstanceData
 {
 	bool                                               bIsUsedAsAtlasPosition;                                   // 0x0000(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0001(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Engine.ScalarParameterAtlasInstanceData.Curve
-	unsigned char                                      UnknownData01[0x28];                                      // 0x0028(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Engine.ScalarParameterAtlasInstanceData.Atlas
-	unsigned char                                      UnknownData02[0x30];                                      // 0x0028(0x0030) MISSED OFFSET
+	TSoftObjectPtr<class UCurveLinearColor>            Curve;                                                    // 0x0000(0x0028)
+	TSoftObjectPtr<class UCurveLinearColorAtlas>       Atlas;                                                    // 0x0000(0x0028)
+	unsigned char                                      UnknownData00[0x30];                                      // 0x0028(0x0030) MISSED OFFSET
 };
 
 // ScriptStruct Engine.MemberReference
@@ -10935,10 +10935,10 @@ struct FPlayerMuteList
 // 0x0038
 struct FPreviewAttachedObjectPair
 {
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0000(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Engine.PreviewAttachedObjectPair.AttachedObject
+	TSoftObjectPtr<class UObject>                      AttachedObject;                                           // 0x0000(0x0028)
 	class UObject*                                     Object;                                                   // 0x0000(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
 	struct FName                                       AttachedTo;                                               // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x30];                                      // 0x0008(0x0030) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x30];                                      // 0x0008(0x0030) MISSED OFFSET
 };
 
 // ScriptStruct Engine.PreviewAssetAttachContainer
@@ -11229,8 +11229,8 @@ struct FSkeletalMeshClothBuildParams
 	int                                                LODIndex;                                                 // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	int                                                SourceSection;                                            // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	bool                                               bRemoveFromMesh;                                          // 0x0000(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0001(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Engine.SkeletalMeshClothBuildParams.PhysicsAsset
-	unsigned char                                      UnknownData01[0x30];                                      // 0x0028(0x0030) MISSED OFFSET
+	TSoftObjectPtr<class UPhysicsAsset>                PhysicsAsset;                                             // 0x0000(0x0028) (Edit)
+	unsigned char                                      UnknownData00[0x30];                                      // 0x0028(0x0030) MISSED OFFSET
 };
 
 // ScriptStruct Engine.BoneMirrorExport

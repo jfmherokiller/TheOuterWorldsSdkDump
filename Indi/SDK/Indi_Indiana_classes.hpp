@@ -4533,11 +4533,11 @@ public:
 
 
 	void STATIC_SetPlayerOwnership(bool bRemoveNonPlayerOwnership);
-	void STATIC_SetOwnership(class UClass* Faction, bool bInPlayerOwned);
-	void STATIC_SetNonPlayerOwnership(class UClass* Faction, bool bRemovePlayerOwnership);
+	void STATIC_SetOwnership(class UClass* Faction, TSoftObjectPtr<class AActor> Actor, bool bInPlayerOwned);
+	void STATIC_SetNonPlayerOwnership(class UClass* Faction, TSoftObjectPtr<class AActor> Actor, bool bRemovePlayerOwnership);
 	bool IsPlayerOwned();
 	class UClass* GetOwningFaction();
-	void GetOwningActor();
+	TSoftObjectPtr<class AActor> GetOwningActor();
 	void STATIC_ClearPlayerOwnership();
 	void STATIC_ClearNonPlayerOwnership();
 	void STATIC_ClearAllOwnership();
@@ -6152,7 +6152,7 @@ public:
 	void STATIC_OnLoadComplete(const class FString& Filename, ELoadGameResult Result);
 	void STATIC_OnConversationEnded(class UConversationInstance* ConversationInstance);
 	void STATIC_OnCombatStateChanged(bool bInCombat, bool bRestoring);
-	void STATIC_OnAudioLogLibraryLoaded();
+	void STATIC_OnAudioLogLibraryLoaded(TSoftObjectPtr<class UAudioLogLibraryDataAsset> LibraryDataAsset);
 	bool IsPlayingAudioLog();
 	EAudioLogPlayState GetCurrentAudioLogPlayState();
 	bool CanStopCurrentAudioLog(bool bExclusive);
@@ -12920,8 +12920,8 @@ public:
 	void STATIC_CopyParamOverrides(class UMaterialInstanceDynamic* Source, const struct FName& DestinationSlotName);
 	void STATIC_ApplyVectorParamToAll(const struct FName& ParamName, const struct FLinearColor& ParamValue, const struct FName& OnlyApplyIfParamSet);
 	void STATIC_ApplyVectorParam(const struct FName& MaterialSlotName, const struct FName& ParamName, const struct FLinearColor& ParamValue);
-	void STATIC_ApplyTextureParamToAll(const struct FName& ParamName, const struct FName& OnlyApplyIfParamSet);
-	void STATIC_ApplyTextureParam(const struct FName& MaterialSlotName, const struct FName& ParamName);
+	void STATIC_ApplyTextureParamToAll(const struct FName& ParamName, TSoftObjectPtr<class UTexture> ParamValue, const struct FName& OnlyApplyIfParamSet);
+	void STATIC_ApplyTextureParam(const struct FName& MaterialSlotName, const struct FName& ParamName, TSoftObjectPtr<class UTexture> ParamValue);
 	void STATIC_ApplyScalarParamToAll(const struct FName& ParamName, float ParamValue, const struct FName& OnlyApplyIfParamSet);
 	void STATIC_ApplyScalarParam(const struct FName& MaterialSlotName, const struct FName& ParamName, float ParamValue);
 	void STATIC_Apply();
@@ -20439,7 +20439,7 @@ public:
 	void STATIC_InitiateTravel(class AIndianaPlayerCharacter* PlayerCharacter, class UTravelDestinationData* TravelDest, bool bTravelFromMapLedger, bool bTriggerAutosave);
 	void STATIC_InheritMeshProperties(class UMeshComponent* ParentMesh, class UMeshComponent* ChildMesh);
 	void STATIC_IndianaCancelAsyncLoadAsset(int Handle);
-	void STATIC_IndianaAsyncLoadAsset(int Priority, const struct FScriptDelegate& Callback, int* HandleOut);
+	void STATIC_IndianaAsyncLoadAsset(TSoftObjectPtr<class UObject> Asset, int Priority, const struct FScriptDelegate& Callback, int* HandleOut);
 	float GetWeaponSpinProgress(class UWeapon* Weapon);
 	bool GetWeaponSpinningUp(class UWeapon* Weapon);
 	float GetWeaponProjectileCharge(class UWeapon* Weapon);
