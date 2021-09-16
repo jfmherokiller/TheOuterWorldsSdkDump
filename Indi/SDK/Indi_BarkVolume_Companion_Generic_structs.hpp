@@ -7,9 +7,9 @@
 #endif
 
 #include "Indi_Basic.hpp"
+#include "Indi_Indiana_classes.hpp"
 #include "Indi_Trigger_Saveable_PlayerOnly_Box_classes.hpp"
 #include "Indi_Engine_classes.hpp"
-#include "Indi_Indiana_classes.hpp"
 
 namespace SDK
 {
