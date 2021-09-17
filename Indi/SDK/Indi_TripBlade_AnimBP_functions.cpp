@@ -1,0 +1,40 @@
+// TheOuterWorlds SDK
+
+#ifdef _MSC_VER
+	#pragma pack(push, 0x8)
+#endif
+
+#include "Indi_TripBlade_AnimBP_parameters.hpp"
+
+namespace SDK
+{
+//---------------------------------------------------------------------------
+//Functions
+//---------------------------------------------------------------------------
+
+// Function TripBlade_AnimBP.TripBlade_AnimBP_C.ExecuteUbergraph_TripBlade_AnimBP
+// (Final, RequiredAPI, BlueprintAuthorityOnly, BlueprintCosmetic, Net, NetReliable, NetRequest, Exec, Native, Event, NetResponse, Static, NetMulticast)
+// Parameters:
+// int                            EntryPoint                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void UTripBlade_AnimBP_C::STATIC_ExecuteUbergraph_TripBlade_AnimBP(int EntryPoint)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TripBlade_AnimBP.TripBlade_AnimBP_C.ExecuteUbergraph_TripBlade_AnimBP");
+
+	UTripBlade_AnimBP_C_ExecuteUbergraph_TripBlade_AnimBP_Params params;
+	params.EntryPoint = EntryPoint;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+}
+
+#ifdef _MSC_VER
+	#pragma pack(pop)
+#endif

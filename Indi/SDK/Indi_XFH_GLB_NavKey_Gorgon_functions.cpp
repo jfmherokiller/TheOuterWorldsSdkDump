@@ -1,0 +1,19 @@
+// TheOuterWorlds SDK
+
+#ifdef _MSC_VER
+	#pragma pack(push, 0x8)
+#endif
+
+#include "Indi_XFH_GLB_NavKey_Gorgon_parameters.hpp"
+
+namespace SDK
+{
+//---------------------------------------------------------------------------
+//Functions
+//---------------------------------------------------------------------------
+
+}
+
+#ifdef _MSC_VER
+	#pragma pack(pop)
+#endif
